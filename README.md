@@ -1,8 +1,13 @@
-# Download with https: 
-
+# Download from Repo (https example):
+```
 git clone https://github.com/jwesterd-redhat/snapshot-lvm-mgt.git
 
-Usage: 
+```
+
+
+Review Usage: 
+
+```
 [root@jwesterd scripts]# ./snapmgt.bash  --usage
 
 Usage: ./snapmgt.bash
@@ -15,11 +20,14 @@ Export variables for additional snapshot size control
   LVPERCENT    Controls the percentage of the original LVsize (1-115)
   LVMAXMB      Max size in MB for any LV ( 4000 set max snapshot to 4GB)
   Debug	       extra printed hints along the way (export debug true to enable)
+```
+
 
 ## Review the skip list, and the percentage and MAXDB usage.
 
 ## Create Default snapshots: 
 
+```
 [root@jwesterd scripts]# ./snapmgt.bash  createsnaps
 Cleanup of /var/lib/leapp
 Updating Subscription Management repositories.
@@ -67,9 +75,10 @@ Saving copy of the files in /boot
   !! Max LV size for /dev/RHELCSB/virt capped at 6000MB !!
   Creating snapshot of /dev/RHELCSB/virt with size 6000
   Logical volume "pre_upgrade_virt" created.
+```
 
 ## Checking status
-
+```
 [root@jwesterd scripts]# ./snapmgt.bash  status
 LVs in root VG RHELCSB: 
 /dev/RHELCSB/Home
@@ -115,9 +124,11 @@ LV /dev/RHELCSB/virt uses 272617 MB
 Storage used by all LVs: 397482 MB
 Checking /boot copy:
 We have a copy of the boot directory
+```
 
 Delete snapshots: 
 
+```
 ## Deleting Snapshots: 
 
 [root@jwesterd scripts]# ./snapmgt.bash  deletesnaps
@@ -169,3 +180,4 @@ args="ro vconsole.keymap=us crashkernel=auto rd.lvm.lv=RHELCSB/Root rd.luks.uuid
 Default kernel to boot from: 
 /boot/vmlinuz-4.18.0-477.27.1.el8_8.x86_64
 [root@jwesterd scripts]#
+```
